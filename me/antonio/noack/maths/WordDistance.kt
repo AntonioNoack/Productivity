@@ -46,7 +46,7 @@ object WordDistance {
                 } else maybe
             }
         }
-        /*
+        /* printing the calculated table
         println("$s1/$s2")
         for(i in 0 .. m){
             for(j in 0 .. n){

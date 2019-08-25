@@ -5,6 +5,8 @@ import me.antonio.noack.tasks.WebAPI.getText
 
 object FileHistory {
 
+    // some examples how this program might be used:
+
     // todo lol
     // - make it easy
     // - make it simple
@@ -25,7 +27,6 @@ object FileHistory {
         // download all old stuff from the database
         val text = getText("hist/listAll.php?project=$projectName")
         val lines = text.replace('\r', ' ').split("###").map { it.trim() }
-        // println(text)
         val newestOnes = HashMap<Int, Entry>()
         var first = true
         for(line in lines){
@@ -49,11 +50,11 @@ object FileHistory {
                         val taskFlags = parts[6].split(',').map { it.trim() }.toHashSet()
                         val entry = Entry(taskUID, version, taskText, created, fileName, todoIndex, taskFlags)
                         val oldEntry = newestOnes[taskUID]
-                        println("got $fileName/$entry, $version > ${oldEntry?.version}")
+                        // println("got $fileName/$entry, $version > ${oldEntry?.version}")
                         if(oldEntry == null || entry.version > oldEntry.version){
                             newestOnes[taskUID] = entry
                         }
-                    }//  else println("ignored $lastPartOfName/$fileName")
+                    }// else println("ignored $lastPartOfName/$fileName")
                 }
             }
         }

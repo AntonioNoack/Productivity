@@ -8,10 +8,11 @@ import java.io.File
 
 val key = getPass()
 
-val flagDeleted = "deleted"
+const val flagDeleted = "deleted"
 
 fun main(){
 
+    // the project to watch
     val projectFolder = File("/home/antonio/IdeaProjects/Productivity2")
     val projectName = projectFolder.name
 
